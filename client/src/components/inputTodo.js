@@ -13,7 +13,7 @@ const InputTodo = () =>{
                 headers:{"Content-Type": "application/json"},
                 body: JSON.stringify(body)
             });
-            //window.location="/"; //when the response is sent the page will refresh and show the changes
+            window.location="/"; //when the response is sent the page will refresh and show the changes
         } catch (err) {
             console.error(err.message);
         }
