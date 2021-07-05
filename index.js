@@ -2,10 +2,22 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const pool = require ("./db");
+const path = require("path");
+const PORT = process.env.PORT || 5000;
+
+//process.env.PORT
+//process.env.NODE_ENV ==> let us know app in production or undefined
 
 //middleware
 app.use(cors());
 app.use(express.json()); //request body
+
+if (process.env.NODE_ENV === "production"){
+ //server static content
+ //npm run build
+ app.use(express.static(path.join(__dirname, "client")));
+}
+
 
 //ROUTES
 
@@ -76,6 +88,10 @@ app.delete("/todos/:id", async (req,res) =>{
     }
 });
 
-app.listen(5000, () =>{
-    console.log("Server has started on port 5000");
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/index.html"))
+})
+
+app.listen(PORT, () =>{
+    console.log(`Server has started on port ${PORT}`);
 });
