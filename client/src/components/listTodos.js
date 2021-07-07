@@ -28,6 +28,7 @@ const ListTodos = () => {
         setTodos(jsonData);
 
       } catch (err) {
+        console.warn(xhr.responseText);
         console.log(err);
       }
     };
