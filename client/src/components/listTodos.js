@@ -26,8 +26,9 @@ const ListTodos = () => {
         const jsonData = await response.json();
   
         setTodos(jsonData);
+
       } catch (err) {
-        console.error(err.message);
+        console.log(err);
       }
     };
   
