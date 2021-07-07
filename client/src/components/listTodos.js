@@ -20,9 +20,9 @@ const ListTodos = () => {
       }
     }
 
- /*   const getTodos = async () => {
+    const getTodos = async () => {
       try {
-        const response = await fetch("/todos");
+        const response = await fetch("/todo");
         const jsonData = await response.json();
   
         setTodos(jsonData);
@@ -33,21 +33,7 @@ const ListTodos = () => {
   
     useEffect(() => {
       getTodos();
-    }, []);*/
-
-    async function getTodos() {
-      const res = await fetch("/todo");
-  
-      const todoArray = await res.json();
-  
-      setTodos(todoArray);
-    }
-  
-    useEffect(() => {
-      getTodos();
     }, []);
-  
-    console.log(todos);
 
     return (
     <Fragment>
