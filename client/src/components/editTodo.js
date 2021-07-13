@@ -13,7 +13,7 @@ const EditTodo = ({todo}) => {
             //proxy
 
 
-            const response = await fetch(`/todo/${todo.todo_id}`, {
+            const response = await fetch(`/todos/${todo.todo_id}`, {
                 method: "PUT",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(body)
