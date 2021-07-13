@@ -17,10 +17,11 @@ app.use(express.json()); //request body
  //npm run build
  app.use(express.static(path.join(__dirname, "client/build")));
 }*/
-
+if (process.env.NODE_ENV === "production"){
 app.get('*', (req, res) =>{
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
+}
 
 //ROUTES
 
